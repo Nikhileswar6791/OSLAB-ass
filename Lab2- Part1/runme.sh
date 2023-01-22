@@ -1,4 +1,4 @@
-cp shedule.c /usr/src/minix/servers/shed/shedule.c
+cp schedule.c /usr/src/minix/servers/sched/schedule.c
 cd --
 cd /usr/src
 make build MKUPDATE=yes
