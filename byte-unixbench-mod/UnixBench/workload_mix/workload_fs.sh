@@ -1,4 +1,4 @@
 #!/bin/sh
-./fstime.sh &
-./fstime.sh &
+./arithoh.sh &
+./arithoh.sh &
 wait
