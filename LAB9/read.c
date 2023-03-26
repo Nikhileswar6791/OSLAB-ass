@@ -10,6 +10,7 @@
  *
  */
 
+#include <string.h> 
 #include "fs.h"
 #include <minix/callnr.h>
 #include <minix/com.h>
