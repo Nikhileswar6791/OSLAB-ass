@@ -128,7 +128,7 @@ int fs_readwrite(void)
 
   if(immediate == 1) {
     if(rw_flag == READING) {
-      printf("This is Immediate file .... Reading\n");
+       printf("This is Immediate file .... Reading\n");
       r = sys_safecopyto(VFS_PROC_NR, gid, (vir_bytes)cum_io,(vir_bytes) rip->i_zone,(size_t) f_size);
       
       int i;
