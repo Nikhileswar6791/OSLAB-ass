@@ -95,10 +95,10 @@ int fs_readwrite(void)
         int i;
         int post = 0;
         char* temp_bytes;
-        char buffer[40];// Max 40 bytes as 10 u32 i_zones present
+        char buffer[40];
         register struct buf* bp;
         
-        for(i = 0; i < f_size; ++i) {// Copy file data in i_zones to buffer.
+        for(i = 0; i < f_size; ++i) {
           if(i%4 == 0)
             temp_bytes = (char*)rip->i_zone + i;
           buffer[i] = temp_bytes[i%4];
@@ -128,24 +128,24 @@ int fs_readwrite(void)
 
   if(immediate == 1) {
     if(rw_flag == READING) {
-      printf("Minix3: Reading from Immediate File.\n");
+      printf("This is Immediate file .... Reading\n");
       r = sys_safecopyto(VFS_PROC_NR, gid, (vir_bytes)cum_io,(vir_bytes) rip->i_zone,(size_t) f_size);
       
       int i;
       int post = 0;
       char* temp_bytes;
-      char buffer[40];// Max 40 bytes as 10 u32 i_zones present
-      for(i=0; i<f_size; ++i) {// Copy file data in i_zones to buffer.
+      char buffer[40];
+      for(i=0; i<f_size; ++i) {
         if(i%4 == 0)
           temp_bytes = (char*)rip->i_zone + i;
         buffer[i] = temp_bytes[i%4];
       }
 
-      printf("Minix3: File Contentsof Immediate File:\n");
+      printf("Contents of Immediate file:\n");
       for(i = 0; i < f_size; ++i) {
         printf("%c", buffer[i]);
       }
-      printf("Minix3: EOF - Immediate File\n");
+      printf("End Of Immediate file\n");
       
       if(r == OK) {
         nrbytes=0;
@@ -154,7 +154,7 @@ int fs_readwrite(void)
       }
     }
     else {
-      printf("Minix3: Writing to Immediate File.\n");
+      printf("This is Immediate file .... Writing\n");
       vir_bytes zone;
       zone = (vir_bytes) rip->i_zone;
       r = sys_safecopyfrom(VFS_PROC_NR, gid, (vir_bytes)cum_io, zone+position, (size_t) nrbytes);
